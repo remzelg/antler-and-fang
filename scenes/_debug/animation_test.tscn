@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bxdb4iy6j1bwv"]
+
+[ext_resource type="PackedScene" uid="uid://dp8x460p8a8q2" path="res://scenes/room/rooms/test_room.tscn" id="1_brmgt"]
+[ext_resource type="Script" uid="uid://68ykw4abvq8i" path="res://scenes/_debug/animation_test.gd" id="1_kf3ia"]
+[ext_resource type="PackedScene" uid="uid://bnp088mdhr5bp" path="res://scenes/entities/character.tscn" id="2_kf3ia"]
+[ext_resource type="Texture2D" uid="uid://fsbdweub7xvm" path="res://assets/spritesheets/wizard_walk.png" id="3_lmt4l"]
+
+[node name="AnimationTest" type="Node2D" unique_id=1931938564]
+script = ExtResource("1_kf3ia")
+
+[node name="Room" parent="." unique_id=682028098 instance=ExtResource("1_brmgt")]
+
+[node name="Character" parent="." unique_id=383945678 instance=ExtResource("2_kf3ia")]
+
+[node name="Sprite2D" parent="Character" index="0" unique_id=1970026914]
+texture = ExtResource("3_lmt4l")
+
+[editable path="Room"]
+[editable path="Character"]

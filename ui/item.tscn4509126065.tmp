@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ddsp1rbw8n1bf"]
+
+[ext_resource type="Material" uid="uid://bkk7fisp04et7" path="res://assets/resources/shaders/colored_outline_material.tres" id="1_w6ot5"]
+[ext_resource type="Texture2D" uid="uid://hxtu0erv41qa" path="res://assets/spritesheets/rpg_items.png" id="2_w6ot5"]
+[ext_resource type="Script" uid="uid://r720voc1jcbi" path="res://ui/item.gd" id="3_w6ot5"]
+
+[node name="Item" type="TextureRect" unique_id=183465376]
+custom_minimum_size = Vector2(60, 40)
+custom_maximum_size = Vector2(60, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("3_w6ot5")
+
+[node name="ItemSprite" type="Sprite2D" parent="." unique_id=1474938633]
+material = ExtResource("1_w6ot5")
+position = Vector2(30, 20)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_w6ot5")
+hframes = 8
+vframes = 8

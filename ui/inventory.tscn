@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bsjkpix7xxme8"]
+
+[ext_resource type="Script" uid="uid://dt5jj307l1yu0" path="res://ui/inventory.gd" id="1_wurve"]
+[ext_resource type="Texture2D" uid="uid://bmkq5rd8luw8x" path="res://assets/spritesheets/07 Border 03.png" id="2_n584p"]
+[ext_resource type="PackedScene" uid="uid://ddsp1rbw8n1bf" path="res://ui/item_slot.tscn" id="6_n584p"]
+
+[node name="Inventory" type="MarginContainer" unique_id=1092588382]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 50
+script = ExtResource("1_wurve")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=192763644]
+layout_mode = 2
+
+[node name="InventoryBackground" type="Sprite2D" parent="MarginContainer" unique_id=953620545]
+position = Vector2(-8, -1)
+
+[node name="Panel1" type="Sprite2D" parent="MarginContainer/InventoryBackground" unique_id=1500434554]
+position = Vector2(165, 118)
+texture = ExtResource("2_n584p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=899537685]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2044963842]
+layout_mode = 2
+
+[node name="ItemSlot" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=709642963 instance=ExtResource("6_n584p")]
+layout_mode = 2
+
+[node name="ItemSlot2" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=914123591 instance=ExtResource("6_n584p")]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=957251336]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2048884013]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1583747997]
+layout_mode = 2

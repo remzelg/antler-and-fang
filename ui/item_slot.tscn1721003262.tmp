@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ddsp1rbw8n1bf"]
+
+[ext_resource type="PackedScene" uid="uid://dfcv8jji1abah" path="res://ui/item.tscn" id="2_gpwhp"]
+[ext_resource type="Script" uid="uid://r720voc1jcbi" path="res://ui/item_slot.gd" id="3_w6ot5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ixai"]
+size = Vector2(100, 100)
+
+[node name="ItemSlot" type="TextureRect" unique_id=183465376 groups=["droppable"]]
+custom_minimum_size = Vector2(60, 40)
+custom_maximum_size = Vector2(60, 40)
+offset_left = 137.0
+offset_top = 99.0
+offset_right = 197.0
+offset_bottom = 139.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("3_w6ot5")
+
+[node name="Item" parent="." unique_id=791911804 instance=ExtResource("2_gpwhp")]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1662936046]
+position = Vector2(30, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1545566912]
+shape = SubResource("RectangleShape2D_6ixai")

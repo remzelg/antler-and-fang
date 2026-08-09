@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://c8y8lfe8gr6lb"]
+
+[ext_resource type="Texture2D" uid="uid://chsrwbr0tslj8" path="res://assets/backgrounds/overworld/overworld_generated.png" id="1_k2c4c"]
+[ext_resource type="Script" uid="uid://1gbypchfjkoo" path="res://scenes/overworld/overworld.gd" id="1_n3lcv"]
+
+[node name="Overworld" type="Node2D" unique_id=1002774090]
+script = ExtResource("1_n3lcv")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=646216005]
+offset_left = -14.000002
+offset_top = -20.000002
+offset_right = 941.7539
+offset_bottom = 618.0
+scale = Vector2(1.2487452, 1.2487452)
+texture = ExtResource("1_k2c4c")
+
+[node name="TownArea" type="Area2D" parent="." unique_id=1113510498]
+position = Vector2(31, 47)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TownArea" unique_id=1905908009]
+position = Vector2(171, 268)
+scale = Vector2(5.012577, 4.7525163)
+polygon = PackedVector2Array(11, 11, 11, -11, -11, -11, -11, 11)
+
+[node name="MineArea" type="Area2D" parent="." unique_id=2122267575]
+position = Vector2(404, -99)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MineArea" unique_id=1143235472]
+position = Vector2(171, 268)
+scale = Vector2(5.012577, 4.7525163)
+polygon = PackedVector2Array(11, 11, 11, -11, -11, -11, -11, 11)
+
+[node name="VillageArea" type="Area2D" parent="." unique_id=1680998095]
+position = Vector2(416, 168)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VillageArea" unique_id=225347079]
+position = Vector2(171, 268)
+scale = Vector2(5.012577, 4.7525163)
+polygon = PackedVector2Array(11, 11, 11, -11, -11, -11, -11, 11)
+
+[node name="CabinArea" type="Area2D" parent="." unique_id=766435934]
+position = Vector2(738, 321)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CabinArea" unique_id=278189348]
+position = Vector2(171, 268)
+scale = Vector2(5.012577, 4.7525163)
+polygon = PackedVector2Array(11, 11, 11, -11, -11, -11, -11, 11)
+
+[node name="TowerArea" type="Area2D" parent="." unique_id=771578091]
+position = Vector2(805, -108)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TowerArea" unique_id=1893033630]
+position = Vector2(171, 268)
+scale = Vector2(5.012577, 4.7525163)
+polygon = PackedVector2Array(11, 11, 11, -11, -11, -11, -11, 11)
+
+[connection signal="input_event" from="TownArea" to="." method="_on_town_area_input_event"]
+[connection signal="mouse_entered" from="TownArea" to="." method="_on_town_area_mouse_entered"]
+[connection signal="mouse_exited" from="TownArea" to="." method="_on_town_area_mouse_exited"]
+[connection signal="input_event" from="MineArea" to="." method="_on_mine_area_input_event"]
+[connection signal="mouse_entered" from="MineArea" to="." method="_on_mine_area_mouse_entered"]
+[connection signal="mouse_exited" from="MineArea" to="." method="_on_mine_area_mouse_exited"]
+[connection signal="input_event" from="VillageArea" to="." method="_on_village_area_input_event"]
+[connection signal="mouse_entered" from="VillageArea" to="." method="_on_village_area_mouse_entered"]
+[connection signal="mouse_exited" from="VillageArea" to="." method="_on_village_area_mouse_exited"]
+[connection signal="input_event" from="CabinArea" to="." method="_on_cabin_area_input_event"]
+[connection signal="mouse_entered" from="CabinArea" to="." method="_on_cabin_area_mouse_entered"]
+[connection signal="mouse_exited" from="CabinArea" to="." method="_on_cabin_area_mouse_exited"]
+[connection signal="input_event" from="TowerArea" to="." method="_on_tower_area_input_event"]
+[connection signal="mouse_entered" from="TowerArea" to="." method="_on_tower_area_mouse_entered"]
+[connection signal="mouse_exited" from="TowerArea" to="." method="_on_tower_area_mouse_exited"]

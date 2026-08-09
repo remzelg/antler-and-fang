@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ds7sf2we3ru6t"]
+
+[ext_resource type="Script" uid="uid://belh4ejk5k63x" path="res://scenes/overworld/town.gd" id="1_8xjf1"]
+[ext_resource type="Texture2D" uid="uid://xghe1b862arb" path="res://assets/backgrounds/overworld/town_generated.png" id="1_75q5o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ixai"]
+size = Vector2(200, 200)
+
+[node name="Town" type="Node2D" unique_id=1911908495]
+script = ExtResource("1_8xjf1")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=80570660]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.688822, 0.688822)
+texture = ExtResource("1_75q5o")
+
+[node name="Button" type="Button" parent="." unique_id=175105385]
+offset_left = 502.0
+offset_top = 466.0
+offset_right = 574.0
+offset_bottom = 497.0
+text = "Embark!
+"
+
+[node name="DoctorArea" type="Area2D" parent="." unique_id=671102701]
+position = Vector2(286, 403)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoctorArea" unique_id=67992904]
+position = Vector2(9, 3)
+shape = SubResource("RectangleShape2D_6ixai")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="DoctorArea" to="." method="_on_doctor_area_mouse_entered"]
+[connection signal="mouse_exited" from="DoctorArea" to="." method="_on_doctor_area_mouse_exited"]
