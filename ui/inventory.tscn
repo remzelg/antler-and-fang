@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bsjkpix7xxme8"]
 
 [ext_resource type="Script" uid="uid://dt5jj307l1yu0" path="res://ui/inventory.gd" id="1_wurve"]
-[ext_resource type="Texture2D" uid="uid://bmkq5rd8luw8x" path="res://assets/spritesheets/07 Border 03.png" id="2_n584p"]
+[ext_resource type="Texture2D" uid="uid://bmkq5rd8luw8x" path="res://assets/spritesheets/inventory_background.png" id="2_n584p"]
 [ext_resource type="PackedScene" uid="uid://ddsp1rbw8n1bf" path="res://ui/item_slot.tscn" id="6_n584p"]
 
 [node name="Inventory" type="MarginContainer" unique_id=1092588382]

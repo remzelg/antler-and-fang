@@ -70,7 +70,7 @@ func _process(delta: float) -> void:
 				print(body_ref)
 				tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
 				print("dropped in new slot")
-				# actually move item between item slots. do any actions required
+				# TODO: actually move item between item slots. do any actions required
 			else:
 				print("item moved back to original placement")
 				tween.tween_property(self, "global_position", initial_position, 0.2).set_ease(Tween.EASE_OUT)

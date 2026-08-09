@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmkq5rd8luw8x"
-path="res://.godot/imported/07 Border 03.png-f0596aaf4f899a008b3a4a8efb63e094.ctex"
+path="res://.godot/imported/inventory_background.png-a89d7f6556e861f1ab1bb2f62d6747f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/spritesheets/07 Border 03.png"
-dest_files=["res://.godot/imported/07 Border 03.png-f0596aaf4f899a008b3a4a8efb63e094.ctex"]
+source_file="res://assets/spritesheets/inventory_background.png"
+dest_files=["res://.godot/imported/inventory_background.png-a89d7f6556e861f1ab1bb2f62d6747f9.ctex"]
 
 [params]
 

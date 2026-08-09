@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cooo8rs76fjys" path="res://ui/town_menu.gd" id="1_bjb2d"]
 [ext_resource type="Texture2D" uid="uid://umo5mym72jl2" path="res://icon.svg" id="2_c2h8d"]
-[ext_resource type="Texture2D" uid="uid://bmkq5rd8luw8x" path="res://assets/spritesheets/07 Border 03.png" id="2_wbsxi"]
+[ext_resource type="Texture2D" uid="uid://bmkq5rd8luw8x" path="res://assets/spritesheets/inventory_background.png" id="2_wbsxi"]
 [ext_resource type="Texture2D" uid="uid://hxtu0erv41qa" path="res://assets/spritesheets/rpg_items.png" id="3_36cdl"]
 [ext_resource type="Shader" uid="uid://c1ssrfaq43xak" path="res://assets/resources/shaders/common_item.gdshader" id="4_36cdl"]
 
