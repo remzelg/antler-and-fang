@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bsjkpix7xxme8"]
+
+[ext_resource type="Script" uid="uid://dt5jj307l1yu0" path="res://ui/inventory/inventory.gd" id="1_wurve"]
+[ext_resource type="Texture2D" uid="uid://bkro2dt5a56rk" path="res://assets/ui/anciDark.png" id="2_lep46"]
+[ext_resource type="Texture2D" uid="uid://bmkq5rd8luw8x" path="res://assets/spritesheets/inventory_background.png" id="2_n584p"]
+[ext_resource type="PackedScene" uid="uid://dcoji3pc0oc3n" path="res://ui/inventory/item_row.tscn" id="3_olbmd"]
+
+[node name="Inventory" type="Container" unique_id=1447852951]
+anchors_preset = -1
+anchor_right = 0.693
+anchor_bottom = 1.0
+grow_vertical = 2
+script = ExtResource("1_wurve")
+
+[node name="InventoryBackground" type="TextureRect" parent="." unique_id=840078152]
+custom_minimum_size = Vector2(500, 400)
+custom_maximum_size = Vector2(500, 400)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_lep46")
+expand_mode = 1
+
+[node name="ItemSlotBackground" type="TextureRect" parent="." unique_id=567817846]
+layout_mode = 2
+texture = ExtResource("2_n584p")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1022875251]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=1323442097]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer" unique_id=899537685]
+layout_mode = 2
+
+[node name="ItemRow" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=1248152793 instance=ExtResource("3_olbmd")]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+
+[node name="ItemRow2" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=554930522 instance=ExtResource("3_olbmd")]
+layout_mode = 2
+
+[node name="ItemRow3" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=304609145 instance=ExtResource("3_olbmd")]
+layout_mode = 2
+
+[node name="ItemRow4" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=1627511504 instance=ExtResource("3_olbmd")]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=1663751461]
+layout_mode = 2
+
+[node name="Sell" type="ColorRect" parent="HBoxContainer/VBoxContainer2" unique_id=1641050499]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/Sell" unique_id=845628522]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.019925633, 0.019925632, 0.019925632, 1)
+text = "Sell"

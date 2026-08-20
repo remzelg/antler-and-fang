@@ -1,5 +1,7 @@
 extends Node2D
 
+signal item_moved
+
 var RARITIES: Dictionary[int, Color] = {
 	0: Color.WHITE,
 	1: Color.GREEN,
@@ -45,7 +47,6 @@ func _ready() -> void:
 	item_frame = 63
 	item_rarity = RARITY_NAMES.UNCOMMON
 	position = Settings.item_size / 2
-	$Area2D.modulate = Color(Color.GRAY, 0.7)
 
 var draggable = false
 var is_inside_droppable = false
@@ -53,11 +54,17 @@ var body_ref
 var initial_position: Vector2
 var offset: Vector2
 
+# TODO:
+# move items out of item slots
+# need to correctlly set clip children on the panel container when item is dragged
+# need to number the item slots. This will be valuable going forward
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if draggable:
 		if Input.is_action_just_pressed("left_click"):
 			Drag.is_dragging = true
+			#get_parent().get_parent().clip_children = CLIP_CHILDREN_DISABLED
 			initial_position = global_position
 			offset = get_global_mouse_position() - global_position
 			global_position = get_global_mouse_position() - offset
@@ -66,11 +73,11 @@ func _process(delta: float) -> void:
 		elif Input.is_action_just_released("left_click"):
 			Drag.is_dragging = false
 			var tween = get_tree().create_tween()
+			
 			if is_inside_droppable:
-				print(body_ref)
-				tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
 				print("dropped in new slot")
-				# TODO: actually move item between item slots. do any actions required
+				tween.tween_property(self, "position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				# TODO: Actually move item in inventory dict
 			else:
 				print("item moved back to original placement")
 				tween.tween_property(self, "global_position", initial_position, 0.2).set_ease(Tween.EASE_OUT)
@@ -88,11 +95,10 @@ func _on_area_2d_mouse_exited() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group('droppable'):
 		is_inside_droppable = true
-		body.modulate = Color.PURPLE
 		body_ref = body
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group('droppable'):
-		is_inside_droppable = false
-		body.modulate = Color.GRAY
-		body_ref = null
+		if body == body_ref:
+			is_inside_droppable = false
+			body_ref = null

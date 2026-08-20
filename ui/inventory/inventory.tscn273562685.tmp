@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bsjkpix7xxme8"]
 
-[ext_resource type="Script" uid="uid://dt5jj307l1yu0" path="res://ui/inventory.gd" id="1_wurve"]
+[ext_resource type="Script" uid="uid://dt5jj307l1yu0" path="res://ui/inventory/inventory.gd" id="1_wurve"]
 [ext_resource type="Texture2D" uid="uid://bmkq5rd8luw8x" path="res://assets/spritesheets/inventory_background.png" id="2_n584p"]
-[ext_resource type="PackedScene" uid="uid://ddsp1rbw8n1bf" path="res://ui/item_slot.tscn" id="6_n584p"]
+[ext_resource type="PackedScene" uid="uid://dcoji3pc0oc3n" path="res://ui/inventory/item_row.tscn" id="3_olbmd"]
 
 [node name="Inventory" type="MarginContainer" unique_id=1092588382]
 anchors_preset = 15
@@ -20,7 +20,8 @@ script = ExtResource("1_wurve")
 layout_mode = 2
 
 [node name="InventoryBackground" type="Sprite2D" parent="MarginContainer" unique_id=953620545]
-position = Vector2(-8, -1)
+clip_children = 1
+position = Vector2(-7, 7)
 
 [node name="Panel1" type="Sprite2D" parent="MarginContainer/InventoryBackground" unique_id=1500434554]
 position = Vector2(165, 118)
@@ -29,20 +30,14 @@ texture = ExtResource("2_n584p")
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=899537685]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2044963842]
+[node name="ItemRow" parent="MarginContainer/VBoxContainer" unique_id=1248152793 instance=ExtResource("3_olbmd")]
 layout_mode = 2
 
-[node name="ItemSlot" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=709642963 instance=ExtResource("6_n584p")]
+[node name="ItemRow2" parent="MarginContainer/VBoxContainer" unique_id=554930522 instance=ExtResource("3_olbmd")]
 layout_mode = 2
 
-[node name="ItemSlot2" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=914123591 instance=ExtResource("6_n584p")]
+[node name="ItemRow3" parent="MarginContainer/VBoxContainer" unique_id=304609145 instance=ExtResource("3_olbmd")]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=957251336]
-layout_mode = 2
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2048884013]
-layout_mode = 2
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1583747997]
+[node name="ItemRow4" parent="MarginContainer/VBoxContainer" unique_id=1627511504 instance=ExtResource("3_olbmd")]
 layout_mode = 2

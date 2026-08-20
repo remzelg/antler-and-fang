@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://dfcv8jji1abah"]
 
 [ext_resource type="Texture2D" uid="uid://y3htsqelt2rq" path="res://assets/spritesheets/rpg_items_trimmed.png" id="2_2j75d"]
-[ext_resource type="Script" uid="uid://cvslllo1umd26" path="res://ui/item.gd" id="3_w6ot5"]
+[ext_resource type="Script" uid="uid://cvslllo1umd26" path="res://ui/inventory/item.gd" id="3_w6ot5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqq03"]
-size = Vector2(40, 40)
 
 [node name="Item" type="Node2D" unique_id=833122682]
 script = ExtResource("3_w6ot5")

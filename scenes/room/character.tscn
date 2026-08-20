@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bnp088mdhr5bp"]
 
-[ext_resource type="Script" uid="uid://dowu6p8eef4if" path="res://scenes/entities/character.gd" id="1_olqfc"]
+[ext_resource type="Script" uid="uid://dowu6p8eef4if" path="res://scenes/room/character.gd" id="1_olqfc"]
 [ext_resource type="Texture2D" uid="uid://fsbdweub7xvm" path="res://assets/spritesheets/wizard_walk.png" id="2_olqfc"]
 
 [sub_resource type="Animation" id="Animation_olqfc"]
