@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://ytym70lf8mbt"]
+
+[ext_resource type="Script" uid="uid://dfv3p0riuchvg" path="res://scenes/_debug/animal.gd" id="1_hmy43"]
+[ext_resource type="Texture2D" uid="uid://b5e1wrr8nw1" path="res://scenes/_debug/assets/badger/critter_badger_NE_walk.png" id="2_cme1h"]
+
+[sub_resource type="Animation" id="Animation_w7vtx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_gui0a"]
+resource_name = "walk_ne"
+length = 1.1666666
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7jj40"]
+_data = {
+&"RESET": SubResource("Animation_w7vtx"),
+&"walk_forward": SubResource("Animation_gui0a")
+}
+
+[node name="Animal" type="Node2D" unique_id=1139903437]
+script = ExtResource("1_hmy43")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2126874518]
+position = Vector2(14.5, 8.5)
+texture = ExtResource("2_cme1h")
+hframes = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1912286706]
+libraries/ = SubResource("AnimationLibrary_7jj40")

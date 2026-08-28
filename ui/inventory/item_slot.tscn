@@ -8,15 +8,14 @@
 
 [node name="ItemSlot" type="PanelContainer" unique_id=1022951139]
 clip_children = 1
-offset_right = 40.0
-offset_bottom = 40.0
+custom_minimum_size = Vector2(60, 60)
+offset_right = 60.0
+offset_bottom = 60.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_lxngi")
 script = ExtResource("3_w6ot5")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=709642963]
-custom_minimum_size = Vector2(100, 100)
-custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

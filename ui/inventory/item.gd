@@ -11,6 +11,10 @@ var RARITIES: Dictionary[int, Color] = {
 
 enum RARITY_NAMES { COMMON, UNCOMMON, RARE, EPIC }
 
+# hacky variable adjustment for centering items
+# when they are moved to collision shape's global position
+var item_offset = Vector2(1,15)
+
 @export var item_id: String
 
 @export var item_frame: int = 1:
@@ -76,7 +80,7 @@ func _process(delta: float) -> void:
 			
 			if is_inside_droppable:
 				print("dropped in new slot")
-				tween.tween_property(self, "position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "position", body_ref.global_position + item_offset, 0.2).set_ease(Tween.EASE_OUT)
 				# TODO: Actually move item in inventory dict
 			else:
 				print("item moved back to original placement")

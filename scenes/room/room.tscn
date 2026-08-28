@@ -1,34 +1,18 @@
 [gd_scene format=3 uid="uid://0rxejtidqld3"]
 
 [ext_resource type="Script" uid="uid://c0e5xoosrdyfs" path="res://scenes/room/room.gd" id="1_vaubn"]
-[ext_resource type="TileSet" uid="uid://n0hndn1oi8ub" path="res://assets/resources/default_tileset.tres" id="2_vaubn"]
-[ext_resource type="Script" uid="uid://cbt6fc2r0adkc" path="res://scenes/room/map.gd" id="3_w7vtx"]
-[ext_resource type="Script" uid="uid://blbrp34ilwu8m" path="res://scenes/room/drawer.gd" id="4_vaubn"]
+[ext_resource type="PackedScene" uid="uid://m7f0nhr7hre3" path="res://scenes/room/map.tscn" id="2_y1kpu"]
+[ext_resource type="Script" uid="uid://brp7nd5trha4h" path="res://scenes/room/grid.gd" id="3_vaubn"]
+[ext_resource type="Script" uid="uid://bijynbtgb25tf" path="res://scenes/room/display.gd" id="4_vaubn"]
 
 [node name="Room" type="Node2D" unique_id=682028098]
 scale = Vector2(2, 2)
 script = ExtResource("1_vaubn")
 
-[node name="AboveMap2" type="TileMapLayer" parent="." unique_id=1565369846]
-tile_set = ExtResource("2_vaubn")
-rendering_quadrant_size = 32
+[node name="Map" parent="." unique_id=464155982 instance=ExtResource("2_y1kpu")]
 
-[node name="AboveMap" type="TileMapLayer" parent="." unique_id=915097609]
-tile_set = ExtResource("2_vaubn")
-rendering_quadrant_size = 32
+[node name="Grid" type="Node" parent="." unique_id=1038764855]
+script = ExtResource("3_vaubn")
 
-[node name="UnderMap" type="TileMapLayer" parent="." unique_id=438497871]
-tile_set = ExtResource("2_vaubn")
-rendering_quadrant_size = 32
-
-[node name="Map" type="TileMapLayer" parent="." unique_id=953661989]
-tile_set = ExtResource("2_vaubn")
-rendering_quadrant_size = 32
-script = ExtResource("3_w7vtx")
-
-[node name="Drawer" type="Node2D" parent="Map" unique_id=1209656071]
+[node name="Display" type="Node2D" parent="." unique_id=1557626121]
 script = ExtResource("4_vaubn")
-
-[node name="Spawns" type="TileMapLayer" parent="." unique_id=1931703156]
-tile_set = ExtResource("2_vaubn")
-rendering_quadrant_size = 32

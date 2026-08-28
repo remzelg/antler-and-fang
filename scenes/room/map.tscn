@@ -1,0 +1,32 @@
+[gd_scene format=4 uid="uid://m7f0nhr7hre3"]
+
+[ext_resource type="Script" uid="uid://cbt6fc2r0adkc" path="res://scenes/room/map.gd" id="1_4sy0t"]
+[ext_resource type="TileSet" uid="uid://n0hndn1oi8ub" path="res://assets/resources/default_tileset.tres" id="2_dnnlc"]
+[ext_resource type="Script" uid="uid://blbrp34ilwu8m" path="res://scenes/room/drawer.gd" id="3_2f0oj"]
+
+[node name="Map" type="Node2D" unique_id=464155982]
+script = ExtResource("1_4sy0t")
+
+[node name="AboveMap2" type="TileMapLayer" parent="." unique_id=168543507]
+tile_set = ExtResource("2_dnnlc")
+rendering_quadrant_size = 32
+
+[node name="AboveMap" type="TileMapLayer" parent="." unique_id=1555162193]
+tile_set = ExtResource("2_dnnlc")
+rendering_quadrant_size = 32
+
+[node name="UnderMap" type="TileMapLayer" parent="." unique_id=2147418988]
+tile_set = ExtResource("2_dnnlc")
+rendering_quadrant_size = 32
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=1708155283]
+tile_map_data = PackedByteArray("AAABAAEAAwAGAAUAAAACAAEAAwAGAAUAAAADAAEAAwAGAAUAAAAEAAEAAwAGAAUAAAAFAAEAAwAGAAUAAAAGAAEAAwAGAAUAAAAHAAEAAwAGAAUAAAAIAAEAAwAGAAUAAAAIAAIAAwAGAAUAAAAJAAIAAwAGAAUAAAAKAAIAAwAGAAUAAAALAAIAAwAGAAUAAAAMAAIAAwAGAAUAAAANAAIAAwAGAAUAAAAOAAIAAwAGAAUAAAAHAAIAAwAGAAUAAAAGAAIAAwAGAAUAAAAFAAAAAwAGAAUAAAAEAAAAAwAGAAUAAAAEAP//AwAGAAUAAAADAP//AwAGAAUAAAADAP7/AwAGAAUAAAAEAP7/AwAGAAUAAAA=")
+tile_set = ExtResource("2_dnnlc")
+rendering_quadrant_size = 32
+
+[node name="Drawer" type="Node2D" parent="Ground" unique_id=833146326]
+script = ExtResource("3_2f0oj")
+
+[node name="Spawns" type="TileMapLayer" parent="." unique_id=1745860979]
+tile_set = ExtResource("2_dnnlc")
+rendering_quadrant_size = 32

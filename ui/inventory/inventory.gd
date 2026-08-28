@@ -1,4 +1,4 @@
-extends Container
+extends MarginContainer
 
 const ITEM_SCENE = preload("res://ui/inventory/item.tscn")
 
@@ -13,7 +13,7 @@ func load_inventory():
 		item_instance.position = get_inventory_position(key)
 
 func get_inventory_position(vector):
-	return Settings.item_size * vector
+	return (Settings.item_size * vector)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
