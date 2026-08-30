@@ -4,15 +4,31 @@ extends Node
 @onready var astar_grid = AStarGrid2D.new()
 @onready var board_state: Dictionary = {}
 
+var grid_corners: Array[Vector2i] = [Vector2i(5,4),Vector2i(5,-3), Vector2i(12,4), Vector2i(12,-3)]
+
 func initialize(tiles: Array[Vector2i]):
-	astar_grid.region = _get_rect_from_vector2i_array(tiles)
+	# setup astar grid 2D
+	var rect = _get_rect_from_vector2i_array(grid_corners)
+	astar_grid.region = rect
 	# TODO: Set tiles within bounding rect that are empty space to solid
 	astar_grid.set_diagonal_mode(AStarGrid2D.DIAGONAL_MODE_NEVER)
 	astar_grid.default_estimate_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
 	astar_grid.update()
+	# setup board state dictionary
+	var start = rect.position
+	var end = rect.position + rect.size
+	# Loop through every X and Y coordinate in the grid
+	for x in range(start.x, end.x + 1):
+		for y in range(start.y, end.y + 1):
+			var point_id = Vector2i(x, y)
+			
+			board_state[point_id] = null
+	
+	board_state[Vector2i(10,-1)] = $"../Animal"
+	board_state[Vector2i(8,4)] = $"../Animal2"
+	print(board_state)
 
 # update board state. Has nothing to do with animation
-# TODO: should use character ID instead of the node reference itself
 func update(character, from_tile, to_tile):
 	board_state.erase(from_tile)
 	board_state[to_tile] = character

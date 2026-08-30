@@ -11,7 +11,7 @@ func local_to_map(global_coords: Vector2):
 	return map.local_to_map(global_coords)
 
 func map_to_local(tile: Vector2i):
-	return map.map_to_local(tile)
+	return Vector2i(map.map_to_local(tile))
 
 #region Drawer
 func highlight_tile(tile, color = Color.YELLOW):

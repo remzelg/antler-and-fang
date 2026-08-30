@@ -5,35 +5,63 @@ extends Node2D
 @onready var grid: Grid = $Grid
 @onready var display: Display = $Display
 
+var time_passed: float = 0
+var previous_loop_complete: bool = true
+@onready var animals = [$Animal, $Animal2]
+
 func _ready():
 	var tiles = map.used_tiles()
 	grid.initialize(tiles)
-	display.initialize(tiles)
-	
-	var test_path = [Vector2(16,4), Vector2(16,3), Vector2(16,2), Vector2(16,1), Vector2(16,0), Vector2(16,-1), Vector2(16,-2), Vector2(16,-3)]
-	var coords = _tile_path_to_coords(test_path)
-	display.move("badger", coords)
+	display.initialize(grid.board_state)
+
+func _process(delta: float):
+	time_passed += delta
+	if time_passed > 1 && previous_loop_complete:
+		previous_loop_complete = false
+		time_passed = 0
+		run_loop()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click"):
 		print(get_global_mouse_position())
 		print(map.local_to_map(get_global_mouse_position()))
 
-func preview_move(character, from_tile, to_tile):
-	pass
+func run_loop():
+	for animal in animals:
+		var list_args = determine_action(animal)
+		var action: String = list_args[0]
+		var action_arg = list_args[1]
+		conduct_action(animal, action, action_arg)
+		# all animals act simultaneously, update state while animations fire
+		# determine deaths
+		# next loop
+	previous_loop_complete = true
 
-func move(character, from_tile, to_tile):
-	var move_path = grid.get_tile_path_from(from_tile, to_tile)
-	display.move("active_character_id", move_path)
+func conduct_action(animal, action_name, action_arg):
+	if action_name == "move":
+		move(animal, action_arg)
+	elif action_name == "cast":
+		cast(animal, action_arg)
 
-func preview_cast(character, spell_id, to_tile):
-	pass
+func determine_action(animal):
+	var current_tile = _get_location_of(animal)
+	var tile_path = grid.get_tile_path_from(Vector2i(8,3), Vector2i(8,2))
+	
+	# mark all the squares the animal is moving through as solid
+	return ["move", tile_path]
 
-func cast(character, spell_id, to_tile):
-	pass
+func move(character, tile_path):
+	var coords_path = _tile_path_to_coords(tile_path)
+	
+	display.move(character, coords_path, tile_path)
 
-func pass_turn(character):
-	pass
+# basic attacks are gonna be spells also
+func cast(character, args):
+	var spell_id = args[0]
+	var target_tile = args[1]
+
+func _get_location_of(animal):
+	return Vector2i(8,3)
 
 func _tile_path_to_coords(tiles):
 	var coords = []
