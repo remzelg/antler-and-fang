@@ -1,5 +1,4 @@
-class_name Map
-extends Node2D
+class_name Map extends Node2D
 
 @onready var map: TileMapLayer = $Ground
 @onready var drawer: Node2D = $Ground/Drawer

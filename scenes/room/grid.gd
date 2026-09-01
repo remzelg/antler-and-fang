@@ -1,40 +1,21 @@
-class_name Grid
-extends Node
+class_name Grid extends Node
 
 @onready var astar_grid = AStarGrid2D.new()
-@onready var board_state: Dictionary = {}
 
-var grid_corners: Array[Vector2i] = [Vector2i(5,4),Vector2i(5,-3), Vector2i(12,4), Vector2i(12,-3)]
-
-func initialize(tiles: Array[Vector2i]):
+func initialize(rect: Rect2i):
 	# setup astar grid 2D
-	var rect = _get_rect_from_vector2i_array(grid_corners)
 	astar_grid.region = rect
 	# TODO: Set tiles within bounding rect that are empty space to solid
 	astar_grid.set_diagonal_mode(AStarGrid2D.DIAGONAL_MODE_NEVER)
 	astar_grid.default_estimate_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
 	astar_grid.update()
-	# setup board state dictionary
-	var start = rect.position
-	var end = rect.position + rect.size
-	# Loop through every X and Y coordinate in the grid
-	for x in range(start.x, end.x + 1):
-		for y in range(start.y, end.y + 1):
-			var point_id = Vector2i(x, y)
-			
-			board_state[point_id] = null
-	
-	board_state[Vector2i(10,-1)] = $"../Animal"
-	board_state[Vector2i(8,4)] = $"../Animal2"
-	print(board_state)
 
 # update board state. Has nothing to do with animation
-func update(character, from_tile, to_tile):
-	board_state.erase(from_tile)
-	board_state[to_tile] = character
-	astar_grid.set_point_solid(from_tile, false)
-	astar_grid.set_point_solid(to_tile, true)
-	astar_grid.update()
+func fill(tile):
+	astar_grid.set_point_solid(tile, true)
+
+func clear(tile):
+	astar_grid.set_point_solid(tile, false)
 
 func get_distance_from(tile1, tile2):
 	var path = get_tile_path_from(tile1, tile2)
@@ -69,14 +50,3 @@ func get_tile_path_from(tile1: Vector2i, tile2: Vector2i, get_closest_adjacent =
 	astar_grid.update()
 
 	return path
-
-# helper function to create a rect2 around a group of vector2 points
-func _get_rect_from_vector2i_array(array: Array[Vector2i]) -> Rect2i:
-	if array.is_empty():
-		return Rect2i()
-		
-	var rect = Rect2i(array[0], Vector2i.ZERO)
-	for point in array:
-		rect = rect.expand(point)
-		
-	return rect

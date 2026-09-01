@@ -1,16 +1,12 @@
-class_name Display
-extends Node2D
+class_name Display extends Node2D
 
 # handles character and spell animations
 # all character sprites live in this scene
 
-func initialize(board_state: Dictionary):
-	for key in board_state.keys():
-		var animal = board_state[key]
-		
-		if animal:
-			var coord = $"../Map".map_to_local(key)
-			animal.position = Vector2(coord)
+func place(character, coords):
+	character.position = coords
+	
+	character.play_animation("idle", "front")
 
 func move(character, coords, tiles):
 	character.position = coords[0] # set character to correct starting position for testing
@@ -20,7 +16,7 @@ func move(character, coords, tiles):
 	var facing = "front"
 	for i in range(1, coords.size()): # skip path[0], the tile the character currently occupies
 		var destination_coords = Vector2(coords[i])
-		facing = determine_facing(tiles[i-1], tiles[i])
+		facing = _determine_facing(tiles[i-1], tiles[i])
 		tween.tween_callback(character.play_animation.bind("walk", facing))
 		tween.tween_property(character, "position", destination_coords, walk_duration)
 	tween.tween_callback(character.play_animation.bind("idle", facing))
@@ -36,7 +32,7 @@ var VECTOR_TO_DIRECTION = {
 	Vector2i(-1,0): "left",
 }
 
-func determine_facing(origin, destination):
+func _determine_facing(origin, destination):
 	var vector = destination - origin
 	if abs(vector.x) > abs(vector.y):
 		return VECTOR_TO_DIRECTION[Vector2i(vector.x / abs(vector.x), 0)]
