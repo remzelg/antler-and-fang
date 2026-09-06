@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://vtpiq53wsf7m"]
+
+[ext_resource type="Shader" uid="uid://buw0mjssxs6a" path="res://assets/shaders/epic_item.gdshader" id="1_1yxsu"]
+
+[resource]
+shader = ExtResource("1_1yxsu")
+shader_parameter/outline_color = Color(0.627451, 0.1254902, 0.9411765, 1)
+shader_parameter/outline_thickness = 1.0

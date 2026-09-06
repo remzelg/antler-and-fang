@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ytym70lf8mbt"]
+
+[ext_resource type="Script" uid="uid://dfv3p0riuchvg" path="res://scenes/characters/animal.gd" id="1_hmy43"]
+[ext_resource type="Texture2D" uid="uid://cjgjlkoeujidd" path="res://assets/spritesheets/boar/idle_left.png" id="2_8dtbx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3c5tq"]
+bg_color = Color(0.56851166, 0.07298786, 0.27887622, 1)
+
+[node name="Animal" type="Node2D" unique_id=1139903437 groups=["autobattler"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_hmy43")
+species = "badger"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2126874518]
+texture = ExtResource("2_8dtbx")
+centered = false
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1912286706]
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=319738369]
+visible = false
+offset_left = -10.0
+offset_top = -19.0
+offset_right = 10.5
+offset_bottom = -15.0
+size_flags_horizontal = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_3c5tq")
+max_value = 10.0
+step = 1.0
+value = 10.0
+show_percentage = false

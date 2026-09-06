@@ -1,0 +1,209 @@
+[gd_scene format=3 uid="uid://ytym70lf8mbt"]
+
+[ext_resource type="Script" uid="uid://dfv3p0riuchvg" path="res://scenes/animal.gd" id="1_hmy43"]
+[ext_resource type="Texture2D" uid="uid://cjgjlkoeujidd" path="res://assets/spritesheets/boar/idle_left.png" id="2_8dtbx"]
+
+[sub_resource type="Animation" id="Animation_w7vtx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ieass"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.2268928, 0.08726646259971647]
+}
+
+[sub_resource type="Animation" id="Animation_d7epe"]
+resource_name = "badger_die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8dtbx"]
+resource_name = "idle"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 21]
+}
+
+[sub_resource type="Animation" id="Animation_gui0a"]
+resource_name = "walk_ne"
+length = 1.1666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 8]
+}
+
+[sub_resource type="Animation" id="Animation_3c5tq"]
+resource_name = "boar_attack"
+length = 0.53333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.22689280275926285, 0.3490658503988659]
+}
+
+[sub_resource type="Animation" id="Animation_brjsm"]
+resource_name = "boar_die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_236rq"]
+resource_name = "boar_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 6]
+}
+
+[sub_resource type="Animation" id="Animation_3v7ex"]
+resource_name = "boar_walk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7jj40"]
+_data = {
+&"RESET": SubResource("Animation_w7vtx"),
+&"badger_attack": SubResource("Animation_ieass"),
+&"badger_die": SubResource("Animation_d7epe"),
+&"badger_idle": SubResource("Animation_8dtbx"),
+&"badger_walk": SubResource("Animation_gui0a"),
+&"boar_attack": SubResource("Animation_3c5tq"),
+&"boar_die": SubResource("Animation_brjsm"),
+&"boar_idle": SubResource("Animation_236rq"),
+&"boar_walk": SubResource("Animation_3v7ex")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3c5tq"]
+bg_color = Color(0.56851166, 0.07298786, 0.27887622, 1)
+
+[node name="Animal" type="Node2D" unique_id=1139903437 groups=["autobattler"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_hmy43")
+species = "badger"
+character_id = null
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2126874518]
+position = Vector2(-20, -18)
+texture = ExtResource("2_8dtbx")
+centered = false
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1912286706]
+libraries/ = SubResource("AnimationLibrary_7jj40")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=319738369]
+visible = false
+offset_left = -10.0
+offset_top = -19.0
+offset_right = 10.5
+offset_bottom = -15.0
+size_flags_horizontal = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_3c5tq")
+max_value = 10.0
+step = 1.0
+value = 10.0
+show_percentage = false

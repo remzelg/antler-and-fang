@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://c6jmoubj3cosq"]
-
-[ext_resource type="Script" uid="uid://drqxy8op2wiiw" path="res://scenes/_debug/testing_room_scene.gd" id="1_l3whf"]
-[ext_resource type="PackedScene" uid="uid://cwniaevqg577a" path="res://scenes/_debug/test_room.tscn" id="2_h5b1n"]
-
-[node name="TestingRoomScene" type="Node2D" unique_id=393105976]
-script = ExtResource("1_l3whf")
-
-[node name="Room" parent="." unique_id=682028098 instance=ExtResource("2_h5b1n")]

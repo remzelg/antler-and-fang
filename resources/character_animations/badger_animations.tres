@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CharacterAnimation" format=3 uid="uid://ba7q5mtf62dyi"]
+
+[ext_resource type="Script" uid="uid://b0npuhp1o4i4o" path="res://resources/character_animations/character_animations.gd" id="1_vyaau"]
+
+[resource]
+script = ExtResource("1_vyaau")
+metadata/_custom_type_script = "uid://b0npuhp1o4i4o"

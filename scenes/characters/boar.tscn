@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://c2vla70bqpmye"]
+
+[ext_resource type="PackedScene" uid="uid://ytym70lf8mbt" path="res://scenes/characters/animal.tscn" id="1_kcnjg"]
+[ext_resource type="Texture2D" uid="uid://dome7x3fymqkx" path="res://assets/spritesheets/boar/idle_back.png" id="2_amqty"]
+[ext_resource type="Texture2D" uid="uid://eeoeetq737m4" path="res://assets/spritesheets/boar/idle_front.png" id="3_gs74y"]
+[ext_resource type="Texture2D" uid="uid://cjgjlkoeujidd" path="res://assets/spritesheets/boar/idle_left.png" id="4_lh3gh"]
+[ext_resource type="Texture2D" uid="uid://bu2cf85lyqfam" path="res://assets/spritesheets/boar/idle_right.png" id="5_6hauc"]
+[ext_resource type="Script" uid="uid://vds0bbwu6l4c" path="res://four_way_animation.gd" id="6_hngex"]
+[ext_resource type="Script" uid="uid://b0npuhp1o4i4o" path="res://resources/character_animations/character_animations.gd" id="7_b7jh4"]
+[ext_resource type="Texture2D" uid="uid://li10euiumu45" path="res://assets/spritesheets/boar/walk_back.png" id="8_tt0al"]
+[ext_resource type="Texture2D" uid="uid://4043dajbod5c" path="res://assets/spritesheets/boar/walk_front.png" id="9_ijhjm"]
+[ext_resource type="Texture2D" uid="uid://d0ktkongmb704" path="res://assets/spritesheets/boar/walk_left.png" id="10_73o6q"]
+[ext_resource type="Texture2D" uid="uid://dw8d4cufgxo0h" path="res://assets/spritesheets/boar/walk_right.png" id="11_8lqhi"]
+
+[sub_resource type="Resource" id="Resource_hlwl5"]
+script = ExtResource("6_hngex")
+length = 1.0
+vframes = 1
+hframes = 7
+front_spritesheet = ExtResource("3_gs74y")
+left_spritesheet = ExtResource("4_lh3gh")
+back_spritesheet = ExtResource("2_amqty")
+right_spritesheet = ExtResource("5_6hauc")
+metadata/_custom_type_script = "uid://vds0bbwu6l4c"
+
+[sub_resource type="Resource" id="Resource_e3jhb"]
+script = ExtResource("6_hngex")
+length = 2.0
+vframes = 1
+hframes = 4
+front_spritesheet = ExtResource("9_ijhjm")
+left_spritesheet = ExtResource("10_73o6q")
+back_spritesheet = ExtResource("8_tt0al")
+right_spritesheet = ExtResource("11_8lqhi")
+metadata/_custom_type_script = "uid://vds0bbwu6l4c"
+
+[sub_resource type="Resource" id="Resource_cw77n"]
+script = ExtResource("7_b7jh4")
+idle_animation = SubResource("Resource_hlwl5")
+walk_animation = SubResource("Resource_e3jhb")
+metadata/_custom_type_script = "uid://b0npuhp1o4i4o"
+
+[sub_resource type="Animation" id="Animation_amqty"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 6]
+}
+
+[sub_resource type="Animation" id="Animation_gs74y"]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lh3gh"]
+_data = {
+&"idle": SubResource("Animation_amqty"),
+&"walk": SubResource("Animation_gs74y")
+}
+
+[node name="Boar" unique_id=1139903437 instance=ExtResource("1_kcnjg")]
+species = "boar"
+character_id = "a_boar"
+animation = SubResource("Resource_cw77n")
+
+[node name="Sprite2D" parent="." index="0" unique_id=2126874518]
+texture = ExtResource("3_gs74y")
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1912286706]
+libraries/boar_animations = SubResource("AnimationLibrary_lh3gh")

@@ -19,7 +19,10 @@ func move(character, coords, tiles):
 		facing = _determine_facing(tiles[i-1], tiles[i])
 		tween.tween_callback(character.play_animation.bind("walk", facing))
 		tween.tween_property(character, "position", destination_coords, walk_duration)
-	tween.tween_callback(character.play_animation.bind("idle", facing))
+	#tween.tween_callback(character.play_animation.bind("idle", facing))
+
+func attack(character, tile):
+	character.play_animation("attack", character.facing)
 
 func cast(character_id, spell_id, target_tile):
 	pass

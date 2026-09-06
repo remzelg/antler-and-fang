@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://lp81f5uoxytc"]
+
+[ext_resource type="PackedScene" uid="uid://cuhh5exws4r2k" path="res://scenes/effects/fireball.tscn" id="1_koenh"]
+
+[node name="SpellTesting" type="Node2D" unique_id=164309633]
+
+[node name="Fireball" parent="." unique_id=1529721677 instance=ExtResource("1_koenh")]

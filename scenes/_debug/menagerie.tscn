@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d0ecif8g16wxy"]
+
+[ext_resource type="Script" uid="uid://djg2ne37b6ivt" path="res://scenes/_debug/menagerie.gd" id="1_ewxwc"]
+[ext_resource type="PackedScene" uid="uid://ytym70lf8mbt" path="res://scenes/characters/animal.tscn" id="1_g2f8p"]
+[ext_resource type="PackedScene" uid="uid://1jbyww2pa04h" path="res://scenes/characters/badger.tscn" id="2_0nwfq"]
+[ext_resource type="PackedScene" uid="uid://c2vla70bqpmye" path="res://scenes/characters/boar.tscn" id="3_6rpvv"]
+[ext_resource type="PackedScene" uid="uid://dnxt7viiw8dc" path="res://scenes/characters/stag.tscn" id="5_6rpvv"]
+
+[node name="Menagerie" type="Node2D" unique_id=1272733642]
+script = ExtResource("1_ewxwc")
+
+[node name="GenericAnimal" parent="." unique_id=1139903437 instance=ExtResource("1_g2f8p")]
+visible = false
+
+[node name="Badger" parent="." unique_id=1550731126 instance=ExtResource("2_0nwfq")]
+position = Vector2(49, 74)
+
+[node name="Boar" parent="." unique_id=1798482738 instance=ExtResource("3_6rpvv")]
+position = Vector2(187, 71)
+
+[node name="Stag" parent="." unique_id=1549417638 instance=ExtResource("5_6rpvv")]
+position = Vector2(339, 54)

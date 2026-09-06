@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://dnxt7viiw8dc"]
+
+[ext_resource type="PackedScene" uid="uid://ytym70lf8mbt" path="res://scenes/characters/animal.tscn" id="1_d0kxi"]
+[ext_resource type="Texture2D" uid="uid://38b523yeru1a" path="res://assets/spritesheets/stag/idle_back.png" id="2_tdjb5"]
+[ext_resource type="Texture2D" uid="uid://lfa0i3ru81j8" path="res://assets/spritesheets/stag/idle_front.png" id="3_socut"]
+[ext_resource type="Texture2D" uid="uid://hqcu7rxq1gm0" path="res://assets/spritesheets/stag/idle_left.png" id="4_83th1"]
+[ext_resource type="Texture2D" uid="uid://3kewtf6qlaci" path="res://assets/spritesheets/stag/idle_right.png" id="5_csgm2"]
+[ext_resource type="Script" uid="uid://vds0bbwu6l4c" path="res://four_way_animation.gd" id="6_leuqv"]
+[ext_resource type="Script" uid="uid://b0npuhp1o4i4o" path="res://resources/character_animations/character_animations.gd" id="7_a61vw"]
+[ext_resource type="Texture2D" uid="uid://byobts05l2if5" path="res://assets/spritesheets/stag/walk_back.png" id="8_et2jn"]
+[ext_resource type="Texture2D" uid="uid://cipewvocl8p07" path="res://assets/spritesheets/stag/walk_front.png" id="9_soe6x"]
+[ext_resource type="Texture2D" uid="uid://d1enpa0o32mjv" path="res://assets/spritesheets/stag/walk_left.png" id="10_hp3p3"]
+[ext_resource type="Texture2D" uid="uid://dica6lsddvsmb" path="res://assets/spritesheets/stag/walk_right.png" id="11_3y3ny"]
+
+[sub_resource type="Resource" id="Resource_8bt88"]
+script = ExtResource("6_leuqv")
+length = 2.0
+vframes = 1
+hframes = 24
+front_spritesheet = ExtResource("3_socut")
+left_spritesheet = ExtResource("4_83th1")
+back_spritesheet = ExtResource("2_tdjb5")
+right_spritesheet = ExtResource("5_csgm2")
+metadata/_custom_type_script = "uid://vds0bbwu6l4c"
+
+[sub_resource type="Resource" id="Resource_ryw0m"]
+script = ExtResource("6_leuqv")
+length = 2.0
+vframes = 1
+hframes = 11
+front_spritesheet = ExtResource("9_soe6x")
+left_spritesheet = ExtResource("10_hp3p3")
+back_spritesheet = ExtResource("8_et2jn")
+right_spritesheet = ExtResource("11_3y3ny")
+metadata/_custom_type_script = "uid://vds0bbwu6l4c"
+
+[sub_resource type="Resource" id="Resource_32k0k"]
+script = ExtResource("7_a61vw")
+idle_animation = SubResource("Resource_8bt88")
+walk_animation = SubResource("Resource_ryw0m")
+metadata/_custom_type_script = "uid://b0npuhp1o4i4o"
+
+[sub_resource type="Animation" id="Animation_tdjb5"]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 21]
+}
+
+[sub_resource type="Animation" id="Animation_socut"]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_83th1"]
+_data = {
+&"idle": SubResource("Animation_tdjb5"),
+&"walk": SubResource("Animation_socut")
+}
+
+[node name="Stag" unique_id=1139903437 instance=ExtResource("1_d0kxi")]
+species = "stag"
+character_id = "a_stag"
+animation = SubResource("Resource_32k0k")
+
+[node name="Sprite2D" parent="." index="0" unique_id=2126874518]
+texture = ExtResource("9_soe6x")
+hframes = 11
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1912286706]
+libraries/stag_animations = SubResource("AnimationLibrary_83th1")

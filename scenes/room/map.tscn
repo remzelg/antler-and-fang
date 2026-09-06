@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://m7f0nhr7hre3"]
 
 [ext_resource type="Script" uid="uid://cbt6fc2r0adkc" path="res://scenes/room/map.gd" id="1_4sy0t"]
-[ext_resource type="TileSet" uid="uid://n0hndn1oi8ub" path="res://assets/resources/default_tileset.tres" id="2_dnnlc"]
+[ext_resource type="TileSet" uid="uid://n0hndn1oi8ub" path="res://resources/default_tileset.tres" id="2_dnnlc"]
 [ext_resource type="Script" uid="uid://blbrp34ilwu8m" path="res://scenes/room/drawer.gd" id="3_2f0oj"]
 
 [node name="Map" type="Node2D" unique_id=464155982]
