@@ -29,10 +29,18 @@ func _run():
 			var animation = node.animation
 			var idle_animation = _create_idle_animation(animation.idle_animation)
 			var walk_animation = _create_walk_animation(animation.walk_animation)
+			var attack_animation = _create_attack_animation(animation.attack_animation)
 			# 7. Save the animation into the library and add to the player
 			anim_lib.add_animation("idle", idle_animation)
 			anim_lib.add_animation("walk", walk_animation)
-			anim_player.add_animation_library(species + "_animations", anim_lib)
+			anim_lib.add_animation("attack", attack_animation)
+			
+			var lib_name = species + "_animations"
+			if anim_player.has_animation_library(lib_name):
+				anim_player.remove_animation_library(lib_name)
+				print("replaced existing anim library " + lib_name)
+			
+			anim_player.add_animation_library(lib_name, anim_lib)
 			
 			print("Animation built successfully in the editor!")
 
@@ -40,6 +48,9 @@ func _create_idle_animation(animation: FourWayAnimation):
 	return _create_animation(animation.length, animation.hframes)
 
 func _create_walk_animation(animation: FourWayAnimation):
+	return _create_animation(animation.length, animation.hframes)
+
+func _create_attack_animation(animation: FourWayAnimation):
 	return _create_animation(animation.length, animation.hframes)
 
 # unused

@@ -2,15 +2,30 @@
 
 [ext_resource type="PackedScene" uid="uid://ytym70lf8mbt" path="res://scenes/characters/animal.tscn" id="1_kcnjg"]
 [ext_resource type="Texture2D" uid="uid://dome7x3fymqkx" path="res://assets/spritesheets/boar/idle_back.png" id="2_amqty"]
+[ext_resource type="Texture2D" uid="uid://bv4v4nph0dpjw" path="res://assets/spritesheets/boar/attack_back.png" id="2_hngex"]
+[ext_resource type="Texture2D" uid="uid://cdh7i0oo80dfa" path="res://assets/spritesheets/boar/attack_front.png" id="3_b7jh4"]
 [ext_resource type="Texture2D" uid="uid://eeoeetq737m4" path="res://assets/spritesheets/boar/idle_front.png" id="3_gs74y"]
 [ext_resource type="Texture2D" uid="uid://cjgjlkoeujidd" path="res://assets/spritesheets/boar/idle_left.png" id="4_lh3gh"]
+[ext_resource type="Texture2D" uid="uid://dp8nxsjsjykj8" path="res://assets/spritesheets/boar/attack_left.png" id="4_tt0al"]
 [ext_resource type="Texture2D" uid="uid://bu2cf85lyqfam" path="res://assets/spritesheets/boar/idle_right.png" id="5_6hauc"]
+[ext_resource type="Texture2D" uid="uid://hk4tu6irl4p1" path="res://assets/spritesheets/boar/attack_right.png" id="5_ijhjm"]
 [ext_resource type="Script" uid="uid://vds0bbwu6l4c" path="res://four_way_animation.gd" id="6_hngex"]
 [ext_resource type="Script" uid="uid://b0npuhp1o4i4o" path="res://resources/character_animations/character_animations.gd" id="7_b7jh4"]
 [ext_resource type="Texture2D" uid="uid://li10euiumu45" path="res://assets/spritesheets/boar/walk_back.png" id="8_tt0al"]
 [ext_resource type="Texture2D" uid="uid://4043dajbod5c" path="res://assets/spritesheets/boar/walk_front.png" id="9_ijhjm"]
 [ext_resource type="Texture2D" uid="uid://d0ktkongmb704" path="res://assets/spritesheets/boar/walk_left.png" id="10_73o6q"]
 [ext_resource type="Texture2D" uid="uid://dw8d4cufgxo0h" path="res://assets/spritesheets/boar/walk_right.png" id="11_8lqhi"]
+
+[sub_resource type="Resource" id="Resource_nhsp1"]
+script = ExtResource("6_hngex")
+length = 1.0
+vframes = 1
+hframes = 3
+front_spritesheet = ExtResource("3_b7jh4")
+left_spritesheet = ExtResource("4_tt0al")
+back_spritesheet = ExtResource("2_hngex")
+right_spritesheet = ExtResource("5_ijhjm")
+metadata/_custom_type_script = "uid://vds0bbwu6l4c"
 
 [sub_resource type="Resource" id="Resource_hlwl5"]
 script = ExtResource("6_hngex")
@@ -38,6 +53,7 @@ metadata/_custom_type_script = "uid://vds0bbwu6l4c"
 script = ExtResource("7_b7jh4")
 idle_animation = SubResource("Resource_hlwl5")
 walk_animation = SubResource("Resource_e3jhb")
+attack_animation = SubResource("Resource_nhsp1")
 metadata/_custom_type_script = "uid://b0npuhp1o4i4o"
 
 [sub_resource type="Animation" id="Animation_amqty"]
@@ -82,6 +98,7 @@ animation = SubResource("Resource_cw77n")
 
 [node name="Sprite2D" parent="." index="0" unique_id=2126874518]
 texture = ExtResource("3_gs74y")
+hframes = 7
 
 [node name="AnimationPlayer" parent="." index="1" unique_id=1912286706]
 libraries/boar_animations = SubResource("AnimationLibrary_lh3gh")

@@ -3,14 +3,29 @@
 [ext_resource type="PackedScene" uid="uid://ytym70lf8mbt" path="res://scenes/characters/animal.tscn" id="1_1elff"]
 [ext_resource type="Texture2D" uid="uid://bh30bgmgrlk2x" path="res://assets/spritesheets/badger/idle_back.png" id="2_4lytk"]
 [ext_resource type="Script" uid="uid://vds0bbwu6l4c" path="res://four_way_animation.gd" id="2_k6sam"]
+[ext_resource type="Texture2D" uid="uid://b8in4nrt3lkjt" path="res://assets/spritesheets/badger/attack_back.png" id="2_rej4j"]
 [ext_resource type="Texture2D" uid="uid://cwrwdx1bpe514" path="res://assets/spritesheets/badger/idle_front.png" id="3_8t88a"]
+[ext_resource type="Texture2D" uid="uid://djsp562h50vgs" path="res://assets/spritesheets/badger/attack_front.png" id="3_64yrt"]
 [ext_resource type="Script" uid="uid://b0npuhp1o4i4o" path="res://resources/character_animations/character_animations.gd" id="3_uvh17"]
 [ext_resource type="Texture2D" uid="uid://bm8es4iqpcshm" path="res://assets/spritesheets/badger/idle_left.png" id="4_exvpf"]
+[ext_resource type="Texture2D" uid="uid://dogpkxb0m0umj" path="res://assets/spritesheets/badger/attack_left.png" id="4_vpa6u"]
+[ext_resource type="Texture2D" uid="uid://oq7625iwus8s" path="res://assets/spritesheets/badger/attack_right.png" id="5_04a8u"]
 [ext_resource type="Texture2D" uid="uid://cqquidtcn2pmt" path="res://assets/spritesheets/badger/idle_right.png" id="5_vebnt"]
 [ext_resource type="Texture2D" uid="uid://cvxdc8jxxq8gp" path="res://assets/spritesheets/badger/walk_back.png" id="8_rej4j"]
 [ext_resource type="Texture2D" uid="uid://b5e1wrr8nw1" path="res://assets/spritesheets/badger/walk_front.png" id="9_64yrt"]
 [ext_resource type="Texture2D" uid="uid://dkh2avvcsae0u" path="res://assets/spritesheets/badger/walk_left.png" id="10_vpa6u"]
 [ext_resource type="Texture2D" uid="uid://d1exreufakkql" path="res://assets/spritesheets/badger/walk_right.png" id="11_04a8u"]
+
+[sub_resource type="Resource" id="Resource_ng3ey"]
+script = ExtResource("2_k6sam")
+length = 1.0
+vframes = 1
+hframes = 3
+front_spritesheet = ExtResource("3_64yrt")
+left_spritesheet = ExtResource("4_vpa6u")
+back_spritesheet = ExtResource("2_rej4j")
+right_spritesheet = ExtResource("5_04a8u")
+metadata/_custom_type_script = "uid://vds0bbwu6l4c"
 
 [sub_resource type="Resource" id="Resource_qruw4"]
 script = ExtResource("2_k6sam")
@@ -38,9 +53,10 @@ metadata/_custom_type_script = "uid://vds0bbwu6l4c"
 script = ExtResource("3_uvh17")
 idle_animation = SubResource("Resource_qruw4")
 walk_animation = SubResource("Resource_sdqmh")
+attack_animation = SubResource("Resource_ng3ey")
 metadata/_custom_type_script = "uid://b0npuhp1o4i4o"
 
-[sub_resource type="Animation" id="Animation_4lytk"]
+[sub_resource type="Animation" id="Animation_rej4j"]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -55,7 +71,7 @@ tracks/0/keys = {
 "values": [0, 21]
 }
 
-[sub_resource type="Animation" id="Animation_8t88a"]
+[sub_resource type="Animation" id="Animation_64yrt"]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -70,10 +86,10 @@ tracks/0/keys = {
 "values": [0, 8]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_exvpf"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vpa6u"]
 _data = {
-&"idle": SubResource("Animation_4lytk"),
-&"walk": SubResource("Animation_8t88a")
+&"idle": SubResource("Animation_rej4j"),
+&"walk": SubResource("Animation_64yrt")
 }
 
 [node name="Badger" unique_id=1139903437 instance=ExtResource("1_1elff")]
@@ -85,4 +101,4 @@ texture = ExtResource("3_8t88a")
 hframes = 22
 
 [node name="AnimationPlayer" parent="." index="1" unique_id=1912286706]
-libraries/badger_animations = SubResource("AnimationLibrary_exvpf")
+libraries/badger_animations = SubResource("AnimationLibrary_vpa6u")

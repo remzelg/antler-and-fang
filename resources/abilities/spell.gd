@@ -24,4 +24,7 @@ func _on_cast(character: Animal)
 func _on_hit(character: Animal)
 
 func _spawn_projectile(projectile_name):
-	
+	pass
+	# spawn fireball
+	# tween fireball over to its target
+	# despawn projectile

@@ -14,4 +14,4 @@ func _ready():
 			else:
 				direction = "back"
 			
-			animal.play_animation("walk", direction)
+			animal.play_animation("attack", direction)

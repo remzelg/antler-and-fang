@@ -78,12 +78,12 @@ func cleanup():
 	temp_filled = []
 	temp_board_state = {}
 
-# TODO:
+# TODO: Really need to just select by ID
 func _find_character(character_id):
 	if character_id == "animal":
-		return $Animal
+		return $Badger
 	elif character_id == "banimal":
-		return $Animal2
+		return $Boar
 	else:
 		return null
 

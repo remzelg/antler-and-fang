@@ -1,7 +1,27 @@
 [gd_scene format=3 uid="uid://ytym70lf8mbt"]
 
 [ext_resource type="Script" uid="uid://dfv3p0riuchvg" path="res://scenes/characters/animal.gd" id="1_hmy43"]
-[ext_resource type="Texture2D" uid="uid://cjgjlkoeujidd" path="res://assets/spritesheets/boar/idle_left.png" id="2_8dtbx"]
+[ext_resource type="Texture2D" uid="uid://hk4tu6irl4p1" path="res://assets/spritesheets/boar/attack_right.png" id="2_q5pji"]
+
+[sub_resource type="Animation" id="Animation_rd6oe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0us6k"]
+_data = {
+&"RESET": SubResource("Animation_rd6oe")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3c5tq"]
 bg_color = Color(0.56851166, 0.07298786, 0.27887622, 1)
@@ -12,11 +32,12 @@ script = ExtResource("1_hmy43")
 species = "badger"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2126874518]
-texture = ExtResource("2_8dtbx")
+texture = ExtResource("2_q5pji")
 centered = false
-hframes = 7
+hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1912286706]
+libraries/ = SubResource("AnimationLibrary_0us6k")
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=319738369]
 visible = false

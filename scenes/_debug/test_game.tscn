@@ -2,10 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://b4rw4g700pbdd" path="res://scenes/game.tscn" id="1_t8qtc"]
 [ext_resource type="PackedScene" uid="uid://cwniaevqg577a" path="res://scenes/_debug/test_room.tscn" id="2_mursh"]
+[ext_resource type="Texture2D" uid="uid://cg73dfta5g4ch" path="res://assets/test_menu.png" id="3_ng3ey"]
 
 [node name="Game" unique_id=1918049690 instance=ExtResource("1_t8qtc")]
 
 [node name="Room" parent="." index="0" unique_id=682028098 instance=ExtResource("2_mursh")]
+
+[node name="TestMenu" type="Sprite2D" parent="Room" index="5" unique_id=814916979]
+position = Vector2(359, 326)
+scale = Vector2(0.3788501, 0.3788501)
+texture = ExtResource("3_ng3ey")
 
 [editable path="Room"]
 [editable path="Room/Map"]
