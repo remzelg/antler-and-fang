@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ll0jxrphjoxv"]
+
+[ext_resource type="PackedScene" uid="uid://b4rw4g700pbdd" path="res://scenes/game.tscn" id="1_t8qtc"]
+[ext_resource type="PackedScene" uid="uid://cwniaevqg577a" path="res://scenes/_debug/test_room.tscn" id="2_mursh"]
+
+[node name="Game" unique_id=1918049690 instance=ExtResource("1_t8qtc")]
+
+[node name="Room" parent="." index="0" unique_id=682028098 instance=ExtResource("2_mursh")]
+
+[editable path="Room"]
+[editable path="Room/Map"]

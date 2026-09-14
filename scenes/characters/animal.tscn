@@ -17,10 +17,38 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q5pji"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0us6k"]
 _data = {
-&"RESET": SubResource("Animation_rd6oe")
+&"RESET": SubResource("Animation_rd6oe"),
+&"die": SubResource("Animation_q5pji")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3c5tq"]
@@ -33,10 +61,11 @@ species = "badger"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2126874518]
 texture = ExtResource("2_q5pji")
-centered = false
+offset = Vector2(0, -5)
 hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1912286706]
+process_mode = 3
 libraries/ = SubResource("AnimationLibrary_0us6k")
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=319738369]

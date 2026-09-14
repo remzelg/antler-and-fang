@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://eeoeetq737m4" path="res://assets/spritesheets/boar/idle_front.png" id="2_qruw4"]
 [ext_resource type="Texture2D" uid="uid://cjgjlkoeujidd" path="res://assets/spritesheets/boar/idle_left.png" id="3_sdqmh"]
 [ext_resource type="Texture2D" uid="uid://bu2cf85lyqfam" path="res://assets/spritesheets/boar/idle_right.png" id="4_23shn"]
-[ext_resource type="Script" uid="uid://vds0bbwu6l4c" path="res://four_way_animation.gd" id="5_mbe7d"]
+[ext_resource type="Script" uid="uid://vds0bbwu6l4c" path="res://resources/character_animations/four_way_animation.gd" id="5_mbe7d"]
 [ext_resource type="Script" uid="uid://b0npuhp1o4i4o" path="res://resources/character_animations/character_animations.gd" id="6_45qaj"]
 [ext_resource type="Texture2D" uid="uid://li10euiumu45" path="res://assets/spritesheets/boar/walk_back.png" id="7_sen6v"]
 [ext_resource type="Texture2D" uid="uid://4043dajbod5c" path="res://assets/spritesheets/boar/walk_front.png" id="8_h078h"]

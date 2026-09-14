@@ -16,7 +16,13 @@ signal spell_hit(character_id: String)
 func _ready():
 	CharacterStateManager.health_changed.connect(_on_health_changed)
 
-func play_animation(action, direction):
+func face(direction):
+	facing = direction
+
+func play_animation(action, direction = facing):
+	if action == "die": # don't switch texture on death
+		$AnimationPlayer.play("die")
+		return
 	_switch_spritesheet(action, direction)
 	$AnimationPlayer.play(species + "_animations/" + action)
 

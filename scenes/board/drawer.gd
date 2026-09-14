@@ -21,7 +21,7 @@ func _draw():
 		var color = highlighted_tiles[tile]
 		draw_cell(tile, default_cell_size, color, false, 2)
 
-func draw_cell(world_position, cell_size, color, fill, line_width = 1):
+func draw_cell(world_position: Vector2, cell_size, color, fill, line_width = 1):
 	# Calculate the diamond corners for the isometric tile
 	var corners = [
 		world_position + Vector2(0, -cell_size.y / 2),  # Top

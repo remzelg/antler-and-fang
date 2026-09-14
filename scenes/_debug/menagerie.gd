@@ -14,4 +14,5 @@ func _ready():
 			else:
 				direction = "back"
 			
-			animal.play_animation("attack", direction)
+			animal.face(direction)
+			animal.play_animation("attack")

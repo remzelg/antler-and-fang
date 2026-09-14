@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ytym70lf8mbt" path="res://scenes/characters/animal.tscn" id="1_1elff"]
 [ext_resource type="Texture2D" uid="uid://bh30bgmgrlk2x" path="res://assets/spritesheets/badger/idle_back.png" id="2_4lytk"]
-[ext_resource type="Script" uid="uid://vds0bbwu6l4c" path="res://four_way_animation.gd" id="2_k6sam"]
+[ext_resource type="Script" uid="uid://vds0bbwu6l4c" path="res://resources/character_animations/four_way_animation.gd" id="2_k6sam"]
 [ext_resource type="Texture2D" uid="uid://b8in4nrt3lkjt" path="res://assets/spritesheets/badger/attack_back.png" id="2_rej4j"]
 [ext_resource type="Texture2D" uid="uid://cwrwdx1bpe514" path="res://assets/spritesheets/badger/idle_front.png" id="3_8t88a"]
 [ext_resource type="Texture2D" uid="uid://djsp562h50vgs" path="res://assets/spritesheets/badger/attack_front.png" id="3_64yrt"]
@@ -57,6 +57,20 @@ attack_animation = SubResource("Resource_ng3ey")
 metadata/_custom_type_script = "uid://b0npuhp1o4i4o"
 
 [sub_resource type="Animation" id="Animation_rej4j"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 2]
+}
+
+[sub_resource type="Animation" id="Animation_64yrt"]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -71,7 +85,7 @@ tracks/0/keys = {
 "values": [0, 21]
 }
 
-[sub_resource type="Animation" id="Animation_64yrt"]
+[sub_resource type="Animation" id="Animation_vpa6u"]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -86,10 +100,11 @@ tracks/0/keys = {
 "values": [0, 8]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vpa6u"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_04a8u"]
 _data = {
-&"idle": SubResource("Animation_rej4j"),
-&"walk": SubResource("Animation_64yrt")
+&"attack": SubResource("Animation_rej4j"),
+&"idle": SubResource("Animation_64yrt"),
+&"walk": SubResource("Animation_vpa6u")
 }
 
 [node name="Badger" unique_id=1139903437 instance=ExtResource("1_1elff")]
@@ -101,4 +116,4 @@ texture = ExtResource("3_8t88a")
 hframes = 22
 
 [node name="AnimationPlayer" parent="." index="1" unique_id=1912286706]
-libraries/badger_animations = SubResource("AnimationLibrary_vpa6u")
+libraries/badger_animations = SubResource("AnimationLibrary_04a8u")

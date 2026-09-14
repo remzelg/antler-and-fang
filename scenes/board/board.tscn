@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://0rxejtidqld3"]
+
+[ext_resource type="Script" uid="uid://c0e5xoosrdyfs" path="res://scenes/board/board.gd" id="1_q07he"]
+[ext_resource type="PackedScene" uid="uid://m7f0nhr7hre3" path="res://scenes/board/map.tscn" id="2_kymhv"]
+[ext_resource type="Script" uid="uid://brp7nd5trha4h" path="res://scenes/board/grid.gd" id="3_ci4ar"]
+
+[node name="Board" type="Node2D" unique_id=682028098]
+scale = Vector2(2, 2)
+script = ExtResource("1_q07he")
+
+[node name="Map" parent="." unique_id=464155982 instance=ExtResource("2_kymhv")]
+
+[node name="Grid" type="Node" parent="." unique_id=1038764855]
+script = ExtResource("3_ci4ar")

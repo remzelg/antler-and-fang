@@ -6,7 +6,9 @@ class_name SpellTemplate extends Spell
 #var target_coord: Vector2
 
 func _on_cast(character: Animal):
-	print(get_class() + " cast at " + target_character_id)
+	if Flipper.enabled(Flipper.Feature.LOGGING):
+		print(get_class() + " cast at " + target_character_id)
 
 func _on_hit(character: Animal):
-	print(get_class() + " hit " + target_character_id)
+	if Flipper.enabled(Flipper.Feature.LOGGING):
+		print(get_class() + " hit " + target_character_id)

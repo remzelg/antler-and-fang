@@ -18,7 +18,6 @@ func _ready():
 func adjust_health(character_id: String, delta: int):
 	var character_state = _find_character_state_by_id(character_id)
 	
-	print(character_state.health)
 	if character_state:
 		character_state.health += delta
 		
