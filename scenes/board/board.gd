@@ -34,6 +34,9 @@ func initialize(rect: Rect2i):
 func map_to_local(tile):
 	return map.map_to_local(tile)
 
+func local_to_map(coord):
+	return map.local_to_map(coord)
+
 func place(character_id, tile):
 	board_state[tile] = character_id
 	grid.fill(tile)
@@ -124,13 +127,6 @@ func null_or_nearest_enemy_tile(current_tile, ignore_filled_tiles=false) -> Vect
 	return closest_tile
 
 #region Utils
-func _tile_path_to_coords(tiles):
-	var coords = []
-	for tile in tiles:
-		coords.push_back(map.map_to_local(tile))
-	
-	return coords
-
 # helper function to create a rect2 around a group of vector2 points
 func _get_rect_from_vector2i_array(array: Array[Vector2i]) -> Rect2i:
 	if array.is_empty():

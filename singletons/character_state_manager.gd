@@ -13,7 +13,15 @@ func _ready():
 	cs2.character_id = "banimal"
 	cs2.health = 10
 	cs2.mana = 10
-	_character_states = [cs1, cs2]
+	var cs3 = CharacterState.new()
+	cs3.character_id = "bboar"
+	cs3.health = 10
+	cs3.mana = 10
+	var cs4 = CharacterState.new()
+	cs4.character_id = "astag"
+	cs4.health = 10
+	cs4.mana = 10
+	_character_states = [cs1, cs2, cs3, cs4]
 
 func adjust_health(character_id: String, delta: int):
 	var character_state = _find_character_state_by_id(character_id)

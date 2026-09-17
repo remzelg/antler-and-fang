@@ -1,7 +1,7 @@
 class_name Animal extends Node2D
 
-signal spell_cast(character_id: String)
-signal spell_hit(character_id: String)
+signal spell_cast()
+signal spell_hit()
 
 @onready var sprite = $Sprite2D
 @onready var animation_player = $AnimationPlayer
@@ -23,8 +23,12 @@ func play_animation(action, direction = facing):
 	if action == "die": # don't switch texture on death
 		$AnimationPlayer.play("die")
 		return
-	_switch_spritesheet(action, direction)
-	$AnimationPlayer.play(species + "_animations/" + action)
+	elif action == "spell": # hardcode till have a dedicated animation
+		_switch_spritesheet("attack", direction)
+		$AnimationPlayer.play("stag_animations/spell")
+	else: # standard behavior
+		_switch_spritesheet(action, direction)
+		$AnimationPlayer.play(species + "_animations/" + action)
 
 func _switch_spritesheet(action, direction):
 	var property_name = action + "_animation"
@@ -46,7 +50,8 @@ func _on_health_changed(char_id, health_total):
 		health_bar.value = health_total
 
 func _emit_spell_cast():
-	spell_cast.emit(character_id)
+	spell_cast.emit()
 
+# bit confusing, but this means the spell CAST by THIS character hit
 func _emit_spell_hit():
-	spell_hit.emit(character_id)
+	spell_hit.emit()

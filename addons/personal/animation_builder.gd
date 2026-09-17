@@ -30,10 +30,13 @@ func _run():
 			var idle_animation = _create_idle_animation(animation.idle_animation)
 			var walk_animation = _create_walk_animation(animation.walk_animation)
 			var attack_animation = _create_attack_animation(animation.attack_animation)
+			var spell_animation = _create_spell_animation(animation.attack_animation)
+			
 			# 7. Save the animation into the library and add to the player
 			anim_lib.add_animation("idle", idle_animation)
 			anim_lib.add_animation("walk", walk_animation)
 			anim_lib.add_animation("attack", attack_animation)
+			anim_lib.add_animation("spell", spell_animation)
 			
 			var lib_name = species + "_animations"
 			if anim_player.has_animation_library(lib_name):
@@ -42,7 +45,7 @@ func _run():
 			
 			anim_player.add_animation_library(lib_name, anim_lib)
 			
-			print("Animation built successfully in the editor!")
+	print("Animation built successfully in the editor!")
 
 func _create_idle_animation(animation: FourWayAnimation):
 	return _create_animation(animation.length, animation.hframes)
@@ -53,13 +56,12 @@ func _create_walk_animation(animation: FourWayAnimation):
 func _create_attack_animation(animation: FourWayAnimation):
 	return _create_animation(animation.length, animation.hframes)
 
-# unused
 func _create_spell_animation(animation: FourWayAnimation):
 	var anim = _create_animation(animation.length, animation.hframes)
 	
-	# 4. Insert a keyframe at 1.5 seconds to invoke our wrapper method
+	# 4. Insert a keyframes at start and end of animation
 	var cast_time = 0.0 # hardcoding for now
-	var hit_time = 2.0 # hardcoding for now
+	var hit_time = animation.length
 	var cast_data = {
 		"method": "_emit_spell_cast",
 		"args": []
@@ -69,8 +71,11 @@ func _create_spell_animation(animation: FourWayAnimation):
 		"args": []
 	}
 	var track_idx = anim.add_track(Animation.TYPE_METHOD)
+	anim.track_set_path(track_idx, NodePath("."))
 	anim.track_insert_key(track_idx, cast_time, cast_data)
 	anim.track_insert_key(track_idx, hit_time, hit_data)
+	
+	return anim
 
 func _create_animation(duration: float, frames: int):
 	# 4. Create the Animation resource

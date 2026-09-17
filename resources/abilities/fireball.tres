@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Fireball" format=3 uid="uid://cb1wefcy80iix"]
+
+[ext_resource type="Script" uid="uid://i6t2p4asqau4" path="res://resources/abilities/fireball.gd" id="1_51cym"]
+
+[resource]
+script = ExtResource("1_51cym")
+target_type = 2
+animation_name = "spell"
+metadata/_custom_type_script = "uid://i6t2p4asqau4"
